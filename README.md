@@ -11,7 +11,7 @@ The original Google Sheet is saved for comparison as [`data/original-sheet.csv`]
 |---|---|---|
 | 1 | Stopped at *The French Dispatch* (2021) | Added *Asteroid City* (2023), *The Phoenician Scheme* (2025), and the Oscar-winning short *The Wonderful Story of Henry Sugar* (2023) |
 | 2 | Each slide had one line of text | Added a synopsis, why each film matters (awards, firsts, production details), and key facts: distributor, writers, cast |
-| 3 | `Group` column unused; no eras | Films are grouped by format (live action / stop-motion / short), and four career-phase eras are shaded on the timeline |
+| 3 | `Group` column unused; no eras | Films are grouped by format (live action / stop-motion animation), and four career-phase eras are shaded on the timeline |
 | 4 | TimelineJS draws **white text on every coloured background**, so light colours such as `#89CFF0`, `#FFB6C1`, `#AFE1AF`, and `#B2BEB5` gave text about 1.5:1 contrast | A film-inspired pastel palette with a CSS override for dark text (every slide at 9:1 or better) |
 | 5 | Title image was a Google image-search thumbnail (`encrypted-tbn0.gstatic.com`), which can expire and has no licence | Openly licensed Wikimedia Commons photo, credited under CC BY-SA 4.0 |
 | 6 | Placeholder `asdf` left in the title row's Alt Text; no alt text or captions elsewhere | Alt text and captions on every slide |

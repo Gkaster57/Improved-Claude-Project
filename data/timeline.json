@@ -258,7 +258,7 @@
         "year": 2023,
         "month": 9,
         "day": 27,
-        "display_date": "September 27, 2023 (Netflix)"
+        "display_date": "September 27, 2023 · Short film (Netflix)"
       },
       "text": {
         "headline": "The Wonderful Story of Henry Sugar",
@@ -270,7 +270,7 @@
         "caption": "Official trailer for <em>The Wonderful Story of Henry Sugar</em>",
         "alt": "Embedded YouTube video: trailer for The Wonderful Story of Henry Sugar"
       },
-      "group": "Short film",
+      "group": "Live action",
       "background": {
         "color": "#E7D6B8"
       },
