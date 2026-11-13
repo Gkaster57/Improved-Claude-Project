@@ -15,6 +15,7 @@ body {
   color: var(--ink);
   font-family: "Jost", "Futura", "Century Gothic", sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 a { color: var(--accent); }
@@ -107,6 +108,36 @@ footer { text-align: center; padding: 1.5rem 16px 2.5rem; font-size: .8rem; lett
   text-shadow: none !important;
 }
 .tl-menubar-inverted .tl-menubar-button { color: var(--ink) !important; }
+
+/* Date line + prev/next labels need higher specificity to beat TimelineJS's !important rules */
+.tl-timeline .tl-full-color-background .tl-text h3.tl-headline-date,
+.tl-timeline .tl-full-color-background .tl-text h3.tl-headline-date small {
+  color: #6B4A3A !important;
+  font-family: "Jost", "Futura", sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.tl-timeline .tl-slidenav-previous .tl-slidenav-content-container.tl-slidenav-inverted .tl-slidenav-title,
+.tl-timeline .tl-slidenav-next .tl-slidenav-content-container.tl-slidenav-inverted .tl-slidenav-title,
+.tl-timeline .tl-slidenav-previous .tl-slidenav-content-container.tl-slidenav-inverted .tl-slidenav-description,
+.tl-timeline .tl-slidenav-next .tl-slidenav-content-container.tl-slidenav-inverted .tl-slidenav-description,
+.tl-timeline .tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-title,
+.tl-timeline .tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-title {
+  color: var(--ink) !important;
+  opacity: .75;
+  text-shadow: none !important;
+}
+
+/* Era bands: muted, film-palette tones instead of TimelineJS's saturated defaults */
+.tl-timeline .tl-timeera.tl-timeera-color0 .tl-timeera-background { background-color: #D9B48F; }
+.tl-timeline .tl-timeera.tl-timeera-color1 .tl-timeera-background { background-color: #9FC4CF; }
+.tl-timeline .tl-timeera.tl-timeera-color2 .tl-timeera-background { background-color: #E5A9B8; }
+.tl-timeline .tl-timeera.tl-timeera-color3 .tl-timeera-background { background-color: #B7C79A; }
+.tl-timeline .tl-timeera.tl-timeera-color4 .tl-timeera-background { background-color: #D9C27A; }
+.tl-timeline .tl-timeera.tl-timeera-color5 .tl-timeera-background { background-color: #C2B6D6; }
+.tl-timeline .tl-timeera .tl-timeera-content .tl-timeera-text h2,
+.tl-timeline .tl-timeera .tl-timeera-text h2 { color: var(--ink) !important; font-weight: 600; font-family: "Jost", sans-serif; }
 
 /* Key-facts list inside slides */
 .tl-slide ul.facts {
