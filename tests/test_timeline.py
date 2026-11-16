@@ -100,6 +100,16 @@ class TimelineData(unittest.TestCase):
         self.assertIn("Twelve features and six short films, 1994&ndash;2025", page)
         self.assertNotIn("one Oscar-winning short", page)
 
+    def test_no_claim_of_every_short(self):
+        # Anderson made shorts not on this timeline (e.g. Castello Cavalcanti, 2013),
+        # so copy must not claim the shorts are complete.
+        with open(os.path.join(ROOT, "index.html"), encoding="utf-8") as f:
+            page = f.read()
+        title = load()["title"]["text"]
+        self.assertNotIn("every feature film and short", page)
+        self.assertNotIn("and his short films", title["text"])
+        self.assertNotIn("Feature Film Timeline", title["headline"])
+
     def test_events_inside_eras(self):
         eras = load()["eras"]
         for e in events():
