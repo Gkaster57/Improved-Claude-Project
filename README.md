@@ -18,12 +18,14 @@ The original Google Sheet is saved for comparison as [`data/original-sheet.csv`]
 | 7 | Trailer credits were approximate (for example, "Rotten Tomatoes") | Credits name the actual YouTube channel. All 13 links were checked with YouTube's oEmbed API |
 | 8 | Slides couldn't be linked individually | `hash_bookmark` is on, so every slide has its own URL |
 | 9 | Depended on a published Google Sheet | Data is version-controlled in this repo and rendered from JSON on GitHub Pages |
+| 10 | Short films left out | A third **Short films** row: the 1994 *Bottle Rocket* short, *Hotel Chevalier* (2007), *Henry Sugar*, and one slide for *The Swan*, *The Rat Catcher*, and *Poison*. The first era now starts in 1994 |
+| 11 | No sense of how the films were received | Rotten Tomatoes and Metacritic scores on every film that has them, linked to the source and dated (Nov 2026) |
+| 12 | A TimelineJS 3.9.6 bug hid the last row label ("Stop-motion animation") | A small workaround in `index.html` keeps every row label visible, including after zooming |
 
 ## Ideas for further expansion
-- Add slides for the 1994 *Bottle Rocket* short, the *Hotel Chevalier* prologue, and the other three Roald Dahl shorts (2023–24).
 - Use licensed stills or posters as slide backgrounds.
 - Make a companion timeline of recurring collaborators (Murray, Wilson, Schwartzman, Coppola, Desplat, Yeoman).
-- Add sourced box-office and critics' scores.
+- Add sourced box-office figures.
 - Map filming locations with StoryMapJS.
 
 ## Editing the timeline
@@ -34,7 +36,11 @@ The original Google Sheet is saved for comparison as [`data/original-sheet.csv`]
   ```sh
   python3 scripts/csv_to_json.py data/wes-anderson-timeline.csv data/timeline.json
   ```
-  Then commit and push. GitHub Pages redeploys automatically.
+  Then run the checks, commit, and push. GitHub Pages redeploys automatically.
+  ```sh
+  python3 -m unittest discover -s tests -v          # data checks (offline)
+  python3 scripts/check_media_links.py data/timeline.json   # trailer links still work (needs network)
+  ```
 - **To use Google Sheets instead:** paste the CSV into a copy of the TimelineJS template, publish it, and generate an embed at timeline.knightlab.com.
   Note that the dark-text colour fix (#4) needs the custom CSS on this site. A plain Knight Lab embed will show white text.
 
@@ -46,8 +52,11 @@ data/wes-anderson-timeline.csv  revised spreadsheet (TimelineJS template columns
 data/timeline.json            generated TimelineJS JSON
 data/original-sheet.csv       original spreadsheet, for comparison
 scripts/csv_to_json.py        CSV → TimelineJS JSON converter
+scripts/check_media_links.py  checks every YouTube trailer link via oEmbed
+tests/test_timeline.py        data checks: JSON in sync, unique slide IDs, contrast, groups, eras, critics lines
+docs/superpowers/             design and plan for the short-films and scores update
 ```
 
 ## Credits
 Built with TimelineJS (Northwestern University Knight Lab). Title photo: Martin Kraft, Wikimedia Commons, CC BY-SA 4.0.
-Trailers are embedded from official or licensed YouTube channels.
+Trailers are embedded from official or licensed YouTube channels. Critics' scores: Rotten Tomatoes and Metacritic, checked November 2026.

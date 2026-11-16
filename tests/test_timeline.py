@@ -94,6 +94,12 @@ class TimelineData(unittest.TestCase):
             self.assertTrue(hosts and hosts <= {"www.rottentomatoes.com", "www.metacritic.com"},
                             f"{e['unique_id']}: {hosts}")
 
+    def test_page_copy(self):
+        with open(os.path.join(ROOT, "index.html"), encoding="utf-8") as f:
+            page = f.read()
+        self.assertIn("Twelve features and six short films, 1994&ndash;2025", page)
+        self.assertNotIn("one Oscar-winning short", page)
+
     def test_events_inside_eras(self):
         eras = load()["eras"]
         for e in events():

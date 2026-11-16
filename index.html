@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wes Anderson Film Timeline</title>
-  <meta name="description" content="An interactive TimelineJS timeline of every feature film directed by Wes Anderson, 1996–2025.">
+  <meta name="description" content="An interactive TimelineJS timeline of every feature film and short directed by Wes Anderson, 1994–2025, with critics' scores.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
   <header class="masthead">
     <p class="kicker">An Interactive Timeline</p>
     <h1>The Films of Wes Anderson</h1>
-    <p class="dek">Twelve features and one Oscar-winning short, 1996&ndash;2025</p>
+    <p class="dek">Twelve features and six short films, 1994&ndash;2025</p>
   </header>
 
   <main>
@@ -48,6 +48,13 @@
           licensed Wikimedia Commons photograph, credited under its CC BY-SA 4.0 licence.</li>
         <li><strong>Accessibility and cleanup.</strong> Added alt text and captions to all media and removed a leftover placeholder value
           (&ldquo;asdf&rdquo;) from the title row. Trailer credits now name the actual YouTube channel. All 13 trailer links were checked and work.</li>
+        <li><strong>Short films.</strong> A third row now holds Anderson's shorts: the 1994 <em>Bottle Rocket</em> short that led to his
+          first feature, <em>Hotel Chevalier</em> (2007, the prologue to <em>The Darjeeling Limited</em>), <em>Henry Sugar</em>, and one slide
+          for the other three Roald Dahl shorts (<em>The Swan</em>, <em>The Rat Catcher</em>, <em>Poison</em>). The first era now starts in 1994.</li>
+        <li><strong>Critics' scores.</strong> Every film with enough reviews has a Rotten Tomatoes Tomatometer and Metacritic Metascore, each linked to
+          its source and dated, because the scores change over time.</li>
+        <li><strong>All three timeline rows are labelled.</strong> A bug in TimelineJS 3.9.6 hid the last row's label (&ldquo;Stop-motion
+          animation&rdquo;) after the timeline redrew itself. A short workaround on this page fixes it.</li>
         <li><strong>Shareable slides.</strong> Each slide has its own URL, so a link can open directly on one film.</li>
         <li><strong>Self-hosted, version-controlled data.</strong> The timeline loads from a JSON file in this repository, generated from a CSV
           that uses the exact TimelineJS spreadsheet columns. It no longer depends on a Google Sheet staying published, and every
@@ -56,10 +63,9 @@
 
       <h3>Ideas for further expansion</h3>
       <ul>
-        <li>Add slides for formative events: the 1994 <em>Bottle Rocket</em> short, the <em>Hotel Chevalier</em> prologue, and the other three Dahl shorts.</li>
         <li>Use film stills or posters as slide background images. Check the licensing first, because most are copyrighted.</li>
         <li>Make a companion timeline of recurring collaborators (Bill Murray, Owen Wilson, Jason Schwartzman, Roman Coppola, Alexandre Desplat, Robert Yeoman).</li>
-        <li>Add box-office and critics' scores, with a cited source for every figure.</li>
+        <li>Add box-office figures, with a cited source for every figure.</li>
         <li>Pair the timeline with a StoryMapJS map of filming locations: Texas, Rome, Rajasthan, Rhode Island, G&ouml;rlitz, Angoul&ecirc;me, and Chinch&oacute;n.</li>
       </ul>
 
@@ -69,9 +75,9 @@
       <a href="data/timeline.json">TimelineJS JSON</a> that this page renders.</p>
 
       <h3>Sources &amp; credits</h3>
-      <p class="small">Release dates are U.S. theatrical release dates (Netflix release for <em>Henry Sugar</em>). Film facts were compiled from
+      <p class="small">Release dates are U.S. theatrical release dates for features, festival premieres for the <em>Bottle Rocket</em> short (Sundance) and <em>Hotel Chevalier</em> (Venice), and Netflix release dates for the Dahl shorts. Film facts were compiled from
       the films' credits and standard references (Wikipedia, the Academy Awards database, the Berlinale and Festival de Cannes archives).
-      Trailers are embedded from the studios' and distributors' official or licensed YouTube channels. The title photograph is by
+      Critics' scores are from Rotten Tomatoes (Tomatometer) and Metacritic (Metascore), checked in November 2026. A short with too few reviews for a score has none listed. Trailers are embedded from the studios' and distributors' official or licensed YouTube channels. The title photograph is by
       Martin Kraft (<a href="https://commons.wikimedia.org/wiki/File:MJK_08478_Wes_Anderson_(Opening_Gala_Berlinale_2018).jpg">Wikimedia Commons</a>),
       CC BY-SA 4.0. The timeline is built with <a href="https://timeline.knightlab.com/">TimelineJS</a> by Northwestern University's Knight Lab.</p>
     </section>
