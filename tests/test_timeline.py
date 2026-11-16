@@ -1,9 +1,11 @@
 """Checks on the generated TimelineJS data. Run: python3 -m unittest discover -s tests -v"""
 import json
 import os
+import re
 import sys
 import tempfile
 import unittest
+import urllib.parse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSV = os.path.join(ROOT, "data", "wes-anderson-timeline.csv")
@@ -72,6 +74,25 @@ class TimelineData(unittest.TestCase):
                     "the-wonderful-story-of-henry-sugar", "the-swan-the-rat-catcher-and-poison"):
             self.assertIn(uid, by_id)
             self.assertEqual(by_id[uid]["group"], "Short films", uid)
+
+    def test_features_have_critics(self):
+        for e in events():
+            if e["group"] in ("Live action", "Stop-motion animation"):
+                self.assertIn("<strong>Critics:</strong>", e["text"]["text"], e["unique_id"])
+
+    def test_critics_format(self):
+        for e in events():
+            t = e["text"]["text"]
+            if "<strong>Critics:</strong>" not in t:
+                continue
+            facts = t[t.index('<ul class="facts">'):]
+            items = re.findall(r"<li>.*?</li>", facts)
+            line = items[-1]
+            self.assertIn("<strong>Critics:</strong>", line, f"{e['unique_id']}: Critics must be the last fact")
+            self.assertIn("(as of Nov 2026)", line, e["unique_id"])
+            hosts = {urllib.parse.urlparse(h).netloc for h in re.findall(r'href="([^"]+)"', line)}
+            self.assertTrue(hosts and hosts <= {"www.rottentomatoes.com", "www.metacritic.com"},
+                            f"{e['unique_id']}: {hosts}")
 
     def test_events_inside_eras(self):
         eras = load()["eras"]
