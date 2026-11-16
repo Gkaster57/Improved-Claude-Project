@@ -2,6 +2,22 @@
   "events": [
     {
       "start_date": {
+        "year": 1994,
+        "month": 1,
+        "display_date": "January 1994 · Short film (Sundance)"
+      },
+      "text": {
+        "headline": "Bottle Rocket (short)",
+        "text": "<p>A 13-minute black-and-white short that Anderson shot in Texas in 1992 with Owen and Luke Wilson and Robert Musgrave. It screened at the 1994 Sundance Film Festival, where it caught the attention of producer James L. Brooks, who backed the full-length feature two years later.</p><ul class=\"facts\"><li><strong>Screened at:</strong> Sundance Film Festival</li><li><strong>Written by:</strong> Wes Anderson &amp; Owen Wilson</li><li><strong>Starring:</strong> Owen Wilson, Luke Wilson, Robert Musgrave</li></ul>"
+      },
+      "group": "Short films",
+      "background": {
+        "color": "#E4E1DA"
+      },
+      "unique_id": "bottle-rocket-short"
+    },
+    {
+      "start_date": {
         "year": 1996,
         "month": 2,
         "day": 21,
@@ -114,6 +130,23 @@
         "color": "#F3D383"
       },
       "unique_id": "the-darjeeling-limited"
+    },
+    {
+      "start_date": {
+        "year": 2007,
+        "month": 9,
+        "day": 2,
+        "display_date": "September 2, 2007 · Short film (Venice premiere)"
+      },
+      "text": {
+        "headline": "Hotel Chevalier",
+        "text": "<p>A 13-minute prologue to <em>The Darjeeling Limited</em>: two former lovers meet again in a Paris hotel room. Anderson paid for it himself and shot it with a small crew. It premiered with the feature at the Venice Film Festival, then was given away free on the iTunes Store, where it was downloaded more than 500,000 times in a month.</p><ul class=\"facts\"><li><strong>Distributor:</strong> Fox Searchlight Pictures (free on iTunes from September 26, 2007)</li><li><strong>Written by:</strong> Wes Anderson</li><li><strong>Starring:</strong> Jason Schwartzman, Natalie Portman</li></ul>"
+      },
+      "group": "Short films",
+      "background": {
+        "color": "#F1E3A6"
+      },
+      "unique_id": "hotel-chevalier"
     },
     {
       "start_date": {
@@ -265,16 +298,39 @@
         "text": "<p>A 39-minute adaptation of Roald Dahl's story about a rich man who learns to see without his eyes, and the first of four Dahl shorts Anderson made for Netflix. It won the Academy Award for Best Live Action Short Film in March 2024, Anderson's first Oscar win.</p><ul class=\"facts\"><li><strong>Distributor:</strong> Netflix</li><li><strong>Written by:</strong> Wes Anderson, from the story by Roald Dahl</li><li><strong>Starring:</strong> Benedict Cumberbatch, Ralph Fiennes, Dev Patel, Ben Kingsley</li></ul>"
       },
       "media": {
-        "url": "https://www.youtube.com/watch?v=C33ucZ0vuks",
+        "url": "https://www.youtube.com/watch?v=4RdncisZ_QA",
         "credit": "Netflix via YouTube",
         "caption": "Official trailer for <em>The Wonderful Story of Henry Sugar</em>",
         "alt": "Embedded YouTube video: trailer for The Wonderful Story of Henry Sugar"
       },
-      "group": "Live action",
+      "group": "Short films",
       "background": {
         "color": "#E7D6B8"
       },
       "unique_id": "the-wonderful-story-of-henry-sugar"
+    },
+    {
+      "start_date": {
+        "year": 2023,
+        "month": 9,
+        "day": 28,
+        "display_date": "September 28–30, 2023 · Short films (Netflix)"
+      },
+      "text": {
+        "headline": "The Swan, The Rat Catcher, and Poison",
+        "text": "<p>Anderson's three other Roald Dahl shorts for Netflix, released on consecutive days after <em>Henry Sugar</em>. Each runs about 17 minutes, keeps most of Dahl's text as narration, and reuses the same small cast in different roles. <em>The Swan</em> (Sept 28) follows a boy tormented by two bullies with a rifle; <em>The Rat Catcher</em> (Sept 29) a strange pest-control man in an English village; <em>Poison</em> (Sept 30) a man in colonial India who believes a krait is asleep on his stomach. In 2024 Netflix combined all four as <em>The Wonderful Story of Henry Sugar and Three More</em>.</p><ul class=\"facts\"><li><strong>Distributor:</strong> Netflix</li><li><strong>Written by:</strong> Wes Anderson, from stories by Roald Dahl</li><li><strong>Starring:</strong> Ralph Fiennes, Rupert Friend, Richard Ayoade, Benedict Cumberbatch, Dev Patel, Ben Kingsley</li></ul>"
+      },
+      "media": {
+        "url": "https://www.youtube.com/watch?v=C33ucZ0vuks",
+        "credit": "Netflix via YouTube",
+        "caption": "Official trailer for <em>The Wonderful Story of Henry Sugar and Three More</em>, which collects all four Dahl shorts",
+        "alt": "Embedded YouTube video: trailer for The Wonderful Story of Henry Sugar and Three More"
+      },
+      "group": "Short films",
+      "background": {
+        "color": "#DDD5E8"
+      },
+      "unique_id": "the-swan-the-rat-catcher-and-poison"
     },
     {
       "start_date": {
@@ -303,7 +359,7 @@
   "eras": [
     {
       "start_date": {
-        "year": 1996
+        "year": 1994
       },
       "end_date": {
         "year": 2001,

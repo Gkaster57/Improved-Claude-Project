@@ -62,6 +62,24 @@ class TimelineData(unittest.TestCase):
         for e in events():
             self.assertIn('<ul class="facts">', e["text"]["text"], e["unique_id"])
 
+    def test_groups(self):
+        self.assertEqual({e["group"] for e in events()},
+                         {"Live action", "Stop-motion animation", "Short films"})
+
+    def test_short_films_row(self):
+        by_id = {e["unique_id"]: e for e in events()}
+        for uid in ("bottle-rocket-short", "hotel-chevalier",
+                    "the-wonderful-story-of-henry-sugar", "the-swan-the-rat-catcher-and-poison"):
+            self.assertIn(uid, by_id)
+            self.assertEqual(by_id[uid]["group"], "Short films", uid)
+
+    def test_events_inside_eras(self):
+        eras = load()["eras"]
+        for e in events():
+            y = e["start_date"]["year"]
+            self.assertTrue(any(er["start_date"]["year"] <= y <= er["end_date"]["year"] for er in eras),
+                            f"{e['unique_id']} ({y}) is outside every era")
+
 
 if __name__ == "__main__":
     unittest.main()
