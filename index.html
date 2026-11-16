@@ -81,6 +81,29 @@
 
   <script src="https://cdn.knightlab.com/libs/timeline3/3.9.6/js/timeline-min.js"></script>
   <script>
+    // Work around two TimelineJS 3.9.6 bugs in grouped timelines:
+    // 1. After a redraw (e.g. the initial zoom), group labels keep their old row
+    //    counts, so later rows are pushed below the nav and hidden.
+    // 2. Zooming re-creates group labels without removing the old ones.
+    // Before each group layout, sync row counts and drop orphaned labels.
+    function fixGroupRows(timeline) {
+      var nav = timeline && timeline._timenav;
+      if (!nav || typeof nav._positionGroups !== "function") return;
+      var positionGroups = nav._positionGroups;
+      nav._positionGroups = function () {
+        var labels = (this.timescale && this.timescale.getGroupLabels()) || [];
+        var current = this._groups.map(function (g, i) {
+          if (labels[i]) g.data.rows = labels[i].rows;
+          return g._el.container;
+        });
+        Array.prototype.forEach.call(this._el.container.querySelectorAll(".tl-timegroup"), function (el) {
+          if (current.indexOf(el) < 0) el.parentNode.removeChild(el);
+        });
+        return positionGroups.apply(this, arguments);
+      };
+      timeline.updateDisplay();
+    }
+
     fetch("data/timeline.json")
       .then(function (r) { return r.json(); })
       .then(function (data) {
@@ -91,6 +114,8 @@
           scale_factor: 1,
           default_bg_color: "#FAF3E3"
         });
+        if (window.timeline.ready) fixGroupRows(window.timeline);
+        else window.timeline.on("loaded", function () { fixGroupRows(window.timeline); });
       })
       .catch(function (err) {
         document.getElementById("timeline-embed").innerHTML =
